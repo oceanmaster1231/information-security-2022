@@ -1,0 +1,42 @@
+# Enigma Logics Start
+
+#Plugboard
+def pass_plugboard(input):
+    for plug in SETTINGS["PLUGBOARD"]:
+        if str.startswith(plug, input):
+            return plug[1]
+        elif str.endswith(plug, input):
+            return plug[0]
+
+    return input
+
+# ETW
+def pass_etw(input):
+    return SETTINGS["ETW"][ord(input) - ord('A')]
+
+# Wheels
+def pass_wheels(input, reverse = False):
+    #implement wheel logic
+    #keep in mind that reflected signals pass wheels in reverse order
+    #가장 먼저 알파벳 순으로 정렬
+    #암호화하는데 사용할 키 K가 필요함, k는 양의 정수이며 모든 문자를 K 단계 문자로 인코딩 (k=3)
+    return input
+
+# UKW
+def pass_ukw(input):
+    return SETTINGS["UKW"][ord(input) - ord('A')]
+
+# Wheel Rotation
+def rotate_wheels():
+    #implement wheel rotation logics
+    #로터 1이 26번 회전할 때 마다 로터 2도 같이 회전한다.
+    #같은 방식으로 로터 3도 로터 2가 26번 회전할 때 매번 회전하지만, 로터 1과 같은 쌍을 이루지 않는 경우,
+    #로터 3이 한바퀴를 돌 때 로터 2도 회전한다.
+
+    # 로터 세팅
+    self.alpha = self.settings['a']
+    self.beta = self.settings['b']
+    self.gama = self.settings['c']
+    rotors = [self.a, self.b, self.c]
+
+    pass
