@@ -1,0 +1,13 @@
+def sdes(text: bitarray, key: bitarray, mode) -> bitarray:
+    result = bitarray()
+
+    #sdes -> 작은 s-boxes와 P-box, 순열을 이용, 2회전 실시
+    #키생성 -> 2회전을 실시하기 위해 주어진 10비트의 오리지널 키로부터 8비트의 서브 키를 2개 생성
+    #1) 초기순열에 평문을 넣어 치환
+    #2) 확장순열에 초기 텍스트의 오른쪽 4bit 값을 입력하여 8bit 값으로 확장
+    #3) 확장순열과 키를 XOR 연산 결과 데이터를 입력
+    #4) 이를 다시 좌우 4bit 씩 나눈 후, 4bit를 각 shift에 입력
+    #5) 그 결과값을 다시 치환
+    #6) 결과를 처음의 초기순열 좌측 4bit와 XOR 연산
+
+    return result
