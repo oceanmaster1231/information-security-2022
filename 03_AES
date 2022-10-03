@@ -1,0 +1,18 @@
+
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad
+
+BLOCK_SIZE = 16
+
+text = pad(b'This is a plaintext', BLOCK_SIZE)
+key = b'16byte-key-here!'
+cipher = AES.new(key, AES.MODE_ECB)
+
+ciphertext = cipher.encrypt(text) #암호화 된 결과
+print(ciphertext)
+
+#1. ECB (Electronic Code Block) Mode
+#가장 단순한 모드로 블록단위로 순차적으로 암호화 하는 구조
+#한개의 블록만 해독되면 나머지 블록도 해독이 되는 단점 (Brute-Force Arttack, Dictionary Attack)
+#암호문이 블록의 배수가 되기 때문에 복호화 후 평문을 알기 위해서 Padding을 해야 함
+#errorpropagation: 각 블록이 독립적으로 동작하므로 한 블록에서 에러가 난다고 해도 다른 블록에 영향을 주지 않음, 해당 블록까지 에러 전파.
