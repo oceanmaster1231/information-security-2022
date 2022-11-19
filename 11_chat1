@@ -1,1 +1,17 @@
-//공개키,
+from Crypto.Publickey import RSA
+form Crypto.Cipher import AES
+
+#키 생성
+private_key = RSA.generate(1024) #개인키 생성
+public_key = private_key.publickey() #공개키 생성
+ 
+#공개키 암호를 이용한 비밀키 암호화 및 복호화
+endata= public_key.encrypt(msg, 32) #공개키로 메시지 암호화
+decdata = private_key.decrypt(encdata) #공개키로 암호화한 메시지를 개인키로 복호화
+
+#대칭키 암호를 이용한 평문 암호화 및 복호화
+encrypted_data = AESCipher(bytes(key)).encrypt(data)
+encrypted_data
+
+decrypted_data = AESCipher(bytes(key)).decrypt(encrypted_data)
+decrypted_data.decode('utf-8)
